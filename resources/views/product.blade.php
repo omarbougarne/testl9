@@ -6,14 +6,29 @@
     <title>Document</title>
 </head>
 <body>
+    <center>
     <h1>All</h1>
-    @foreach($data as $data)
+    
 
     
-    <h1>{{$data->title}}</h1>
-    <h3>{{$data->description}}</h3>
-    <img src="product/{{$data->image}}" alt="idk">
 
+    <table border="1px">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+    </tr>
+    @foreach($data as $data)
+    <tr>
+        <td>{{$data->title}}</td>
+        <td>{{$data->description}}</td>
+        <td><img src="product/{{$data->image}}" alt="idk"></td>
+    </tr>
     @endforeach
+    </table>
+    </center>
+    
+
+    
 </body>
 </html>
