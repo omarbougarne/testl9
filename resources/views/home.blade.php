@@ -19,6 +19,19 @@
         <a class="btn btn-success" href="{{url('show_product')}}">Show</a>
         <br>
     <h1>Add Product</h1>
+    <!-- {{$errors}} -->
+    @if($errors)
+
+
+        @foreach($errors->all() as $error)
+        <li style="color: red;">
+            {{$errors}}
+        </li>
+
+        @endforeach
+
+
+    @endif
     <form action="{{url('/add_product')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="div_deg">

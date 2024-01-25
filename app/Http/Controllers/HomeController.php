@@ -11,6 +11,20 @@ class HomeController extends Controller
         return view('home');
     }
     public function add_product(Request $request){
+        $request->validate(
+            [
+            'title' => 'required|email|unique:products',//min:6
+            'description' => 'required|max:20',
+            'image' => 'required|image|minmes:jpg,png,jpeg,svg|max:2048'
+
+            ],
+            [
+            'title.required'=>'tile is required',
+            'description.required'=>'tile is required',
+            'image.required'=>'tile is required'
+            ]
+    
+    );
         $data = new Product;
         $data->title = $request->title;
         $data->description = $request->description;
